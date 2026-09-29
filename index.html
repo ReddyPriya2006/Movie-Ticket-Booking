@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Ticket Booking</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <div class="logo">🎬 MovieBook</div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#movies">Movies</a>
+            <a href="#about">About</a>
+        </nav>
+    </header>
+
+
+    <!-- Home -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Book Your Movie Tickets</h1>
+            <p>Choose your favorite movie and book your seats easily.</p>
+
+            <a href="#movies" class="hero-btn">Browse Movies</a>
+        </div>
+    </section>
+
+
+    <!-- Movies -->
+    <section id="movies" class="movies-section">
+
+        <h2>Now Showing</h2>
+
+        <!-- Search -->
+        <div class="search-area">
+            <input type="text" id="searchInput" placeholder="Search movie..." onkeyup="searchMovies()">
+
+            <select id="languageFilter" onchange="filterMovies()">
+                <option value="all">All Languages</option>
+                <option value="Telugu">Telugu</option>
+                <option value="Tamil">Tamil</option>
+                <option value="English">English</option>
+            </select>
+        </div>
+
+
+        <!-- Movie Cards -->
+        <div class="movie-container" id="movieContainer">
+
+            <!-- Devara -->
+            <div class="movie-card" data-name="Devara" data-language="Telugu">
+
+                <div class="poster devara">
+                    <span>DEVARA</span>
+                </div>
+
+                <div class="movie-info">
+                    <h3>Devara</h3>
+
+                    <p>⚔️ Action | 🎬 Drama</p>
+
+                    <p class="language">Telugu</p>
+
+                    <p>⭐ 8.0/10</p>
+
+                    <button onclick="openBooking('Devara')">
+                        Book Now
+                    </button>
+                </div>
+
+            </div>
+
+
+            <!-- Yamadonga -->
+            <div class="movie-card" data-name="Yamadonga" data-language="Telugu">
+
+                <div class="poster yamadonga">
+                    <span>YAMADONGA</span>
+                </div>
+
+                <div class="movie-info">
+                    <h3>Yamadonga</h3>
+
+                    <p>🔥 Fantasy | Action</p>
+
+                    <p class="language">Telugu</p>
+
+                    <p>⭐ 8.0/10</p>
+
+                    <button onclick="openBooking('Yamadonga')">
+                        Book Now
+                    </button>
+                </div>
+
+            </div>
+
+
+            <!-- Dragon -->
+            <div class="movie-card" data-name="Dragon" data-language="Tamil">
+
+                <div class="poster dragon">
+                    <span>DRAGON</span>
+                </div>
+
+                <div class="movie-info">
+                    <h3>Dragon</h3>
+
+                    <p>😂 Comedy | 💕 Drama</p>
+
+                    <p class="language">Tamil</p>
+
+                    <p>⭐ 7.8/10</p>
+
+                    <button onclick="openBooking('Dragon')">
+                        Book Now
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Booking Popup -->
+    <div id="bookingModal" class="modal">
+
+        <div class="modal-content">
+
+            <span class="close" onclick="closeBooking()">&times;</span>
+
+            <h2>🎟️ Book Movie Ticket</h2>
+
+            <h3 id="selectedMovie"></h3>
+
+            <label>Select Date</label>
+
+            <input type="date" id="date">
+
+
+            <label>Select Show Time</label>
+
+            <select id="showTime">
+                <option value="10:00 AM">10:00 AM</option>
+                <option value="1:30 PM">1:30 PM</option>
+                <option value="4:30 PM">4:30 PM</option>
+                <option value="7:30 PM">7:30 PM</option>
+                <option value="10:00 PM">10:00 PM</option>
+            </select>
+
+
+            <h3>Select Seats</h3>
+
+            <div class="screen">
+                SCREEN
+            </div>
+
+            <div class="seats">
+
+                <button class="seat" onclick="selectSeat(this)">A1</button>
+                <button class="seat" onclick="selectSeat(this)">A2</button>
+                <button class="seat" onclick="selectSeat(this)">A3</button>
+                <button class="seat" onclick="selectSeat(this)">A4</button>
+
+                <button class="seat" onclick="selectSeat(this)">B1</button>
+                <button class="seat" onclick="selectSeat(this)">B2</button>
+                <button class="seat" onclick="selectSeat(this)">B3</button>
+                <button class="seat" onclick="selectSeat(this)">B4</button>
+
+                <button class="seat" onclick="selectSeat(this)">C1</button>
+                <button class="seat" onclick="selectSeat(this)">C2</button>
+                <button class="seat" onclick="selectSeat(this)">C3</button>
+                <button class="seat" onclick="selectSeat(this)">C4</button>
+
+            </div>
+
+            <p>
+                Selected Seats:
+                <strong id="selectedSeats">None</strong>
+            </p>
+
+            <p>
+                Total: ₹
+                <strong id="totalPrice">0</strong>
+            </p>
+
+            <button class="confirm-btn" onclick="confirmBooking()">
+                Confirm Booking
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- About -->
+    <section id="about" class="about">
+
+        <h2>About MovieBook</h2>
+
+        <p>
+            MovieBook is a simple online movie ticket booking frontend where users can search movies, select show times, choose seats and book tickets.
+        </p>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>© 2026 MovieBook | Movie Ticket Booking System</p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
